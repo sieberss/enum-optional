@@ -1,9 +1,6 @@
 package org.example;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class PersonRepository {
 
@@ -26,8 +23,14 @@ public class PersonRepository {
         return Optional.empty();
     }
 
-    public List<Person> getPersonsWithFavoriteWeekday(DayOfWeek) {
-
+    public List<Person> getPersonsWithFavoriteWeekday(DayOfWeek day) {
+        List<Person> found = new ArrayList<>();
+        for (Person person : persons.values()) {
+            if (person.favoriteDay().equals(day)) {
+                found.add(person);
+            }
+        }
+        return found;
     }
 
     public void countPersonsByGender() {
